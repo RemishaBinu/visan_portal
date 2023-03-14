@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_text_field.dart';
 import 'package:visan_portal/pages/account._verified.dart';
+import 'package:visan_portal/pages/forgot_password.dart';
 
 class SetPassword extends StatelessWidget {
   const SetPassword({super.key});
@@ -35,7 +36,7 @@ class SetPassword extends StatelessWidget {
                   child: CustomButton(text: 'Set password', onPressed: () {
                      Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => const AccountVerified()),
+                              MaterialPageRoute(builder: (context) => ForgotPassword()),
                             );
                   },)),
             ],

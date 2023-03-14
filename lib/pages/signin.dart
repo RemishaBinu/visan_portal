@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_link_text.dart';
 import 'package:visan_portal/components/custom_text_field.dart';
+import 'package:visan_portal/pages/job_search.dart';
 import 'package:visan_portal/pages/set_password.dart';
 import 'package:visan_portal/pages/set_phone_number.dart';
 import 'package:visan_portal/pages/signup.dart';
+import 'package:visan_portal/service/job_service.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({super.key});
@@ -54,7 +56,12 @@ class SignIn extends StatelessWidget {
                   },)),
               Container(
                 padding: EdgeInsets.only(left: 20, right: 20, top: 30),
-                child: CustomButton(text: 'Submit')),
+                child: CustomButton(text: 'Submit', onPressed: () {
+                  Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => JobSearch(jobService: JobService())),
+                            );
+                },)),
               Container(
                 padding: EdgeInsets.only(top: 10),
                 child:
