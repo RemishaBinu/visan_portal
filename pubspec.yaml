@@ -36,6 +36,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   pin_input_text_field: ^4.5.0
+  textfield_tags: ^2.0.2
 
 dev_dependencies:
   flutter_test:
