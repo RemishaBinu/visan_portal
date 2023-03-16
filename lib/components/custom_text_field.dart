@@ -4,12 +4,16 @@ class CustomTextField extends StatelessWidget {
   String label;
   String? hint;
   bool? required;
+  int? maxLength;
+  int? maxLines;
   Function(String)? onChanged;
   CustomTextField(
       {super.key,
       required this.label,
       this.hint,
+      this.maxLength,
       this.onChanged,
+      this.maxLines,
       this.required});
 
   @override
@@ -39,6 +43,8 @@ class CustomTextField extends StatelessWidget {
                         const BorderSide(width: 1.0, color: Colors.black54)),
                 hintText: hint),
             onChanged: onChanged,
+            maxLength:maxLength ,
+            maxLines: maxLines,
           )
         ],
       ),

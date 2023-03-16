@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/model/job_item.dart';
+import 'package:visan_portal/pages/application.dart';
 
 class JobListItem extends StatelessWidget {
   JobItem jobItem;
@@ -41,11 +42,20 @@ class JobListItem extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Expanded(child: Text(jobItem.title, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)),
-              const Icon(Icons.favorite_border_rounded)
-            ],
+          InkWell(
+            onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const Application()),
+                            );
+                          },
+            child: Row(
+              children: [
+                Expanded(child: Text(jobItem.title, style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),)),
+                const Icon(Icons.favorite_border_rounded)
+              ],
+            ),
           ),
           Row(
             children: [Expanded(child: Text(jobItem.company, style: TextStyle(fontSize: 12, color: Color.fromARGB(115, 52, 52, 52))))],

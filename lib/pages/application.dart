@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_link_text.dart';
+import 'package:visan_portal/pages/application_review.dart';
 
 class Application extends StatelessWidget {
   const Application({super.key});
@@ -277,7 +278,13 @@ class Application extends StatelessWidget {
              Container(
                     width: double.infinity,
                     padding: EdgeInsets.only(bottom: 10),
-                    child: CustomButton(text: 'Apply now')),
+                    child: CustomButton(text: 'Apply now', onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ApplicationReview()),
+                            );
+                          },)),
                   Text('Copy link',
                   style: TextStyle(fontSize: 14,
                   color: Color.fromARGB(255, 47, 142, 194),
