@@ -6,6 +6,7 @@ import 'package:visan_portal/components/header_component.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:visan_portal/modals/resume_summary_modal.dart';
 import 'package:visan_portal/pages/application_submission.dart';
+import 'package:visan_portal/pages/edit_profile.dart';
 
 class ApplicationReview extends StatelessWidget {
   const ApplicationReview({super.key});
@@ -273,7 +274,7 @@ class ApplicationReview extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const ApplicationSubmission()),
+                                const EditProfile()),
                       );
                     }))
           ],

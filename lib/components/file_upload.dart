@@ -24,7 +24,7 @@ class FileUpload extends StatelessWidget {
                 
               flex: 4,
               child: Text(this.fileName,
-              textAlign: TextAlign.center,)),
+              textAlign: TextAlign.start,)),
             ),
 
             Expanded(

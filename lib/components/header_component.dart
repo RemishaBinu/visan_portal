@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 
 class Header extends StatelessWidget {
   String text;
+  
   Header({super.key,required this.text});
 
   @override
@@ -19,7 +20,9 @@ class Header extends StatelessWidget {
           padding: EdgeInsets.only(left: 10),
           child: Text(text,
            style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
-        )
+        ),
+        
+
       ],
     );
   }

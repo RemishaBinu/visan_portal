@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/components/text_tag.dart';
