@@ -39,6 +39,8 @@ dependencies:
   textfield_tags: ^2.0.2
   dotted_border: ^2.0.0+3
   image_picker: ^0.8.7
+  percent_indicator: ^4.2.3
+
 
 dev_dependencies:
   flutter_test:

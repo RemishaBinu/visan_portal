@@ -6,6 +6,7 @@ class CustomTextField extends StatelessWidget {
   bool? required;
   int? maxLength;
   int? maxLines;
+  IconData? sIcon;
   Function(String)? onChanged;
   CustomTextField(
       {super.key,
@@ -14,7 +15,8 @@ class CustomTextField extends StatelessWidget {
       this.maxLength,
       this.onChanged,
       this.maxLines,
-      this.required});
+      this.required,
+      this.sIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -40,11 +42,13 @@ class CustomTextField extends StatelessWidget {
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
                     borderSide:
-                        const BorderSide(width: 1.0, color: Colors.black54)),
-                hintText: hint),
+                        const BorderSide(width: 1.0, color: Color.fromARGB(255, 189, 189, 189))),
+                hintText: hint,
+                suffixIcon: Icon(this.sIcon)),
             onChanged: onChanged,
             maxLength:maxLength ,
             maxLines: maxLines,
+            
           )
         ],
       ),
