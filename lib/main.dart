@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:visan_portal/pages/job_selection.dart';
 import 'package:visan_portal/pages/login.dart';
-import 'package:visan_portal/pages/personal_details.dart';
-import 'package:visan_portal/pages/signin.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -20,7 +16,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home: const JobSelection(),
+      home:  const Login(),
     );
   }
 }

@@ -21,7 +21,7 @@ class Box extends StatelessWidget {
           child: Text(title,
           style: TextStyle(fontSize: 16,
           fontFamily: 'Open Sans',
-          color: hasColor!?Color.fromARGB(255, 11, 88, 131):Colors.black),
+          color: hasColor?Color.fromARGB(255, 11, 88, 131):Colors.black),
           textAlign: TextAlign.left)), Expanded(
             flex: 1,
             child: Icon(icon,

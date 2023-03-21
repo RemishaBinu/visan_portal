@@ -7,6 +7,7 @@ import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/file_upload.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/pages/profile_settings_edit.dart';
+import 'package:visan_portal/pages/settings_job_seeker/settings.dart';
 
 class ProfileSettings extends StatelessWidget {
   const ProfileSettings({super.key});
@@ -24,11 +25,20 @@ class ProfileSettings extends StatelessWidget {
               child: Column(children: [
                 Row(
                   children: [
-                    Expanded(flex: 3, child: Header(text: 'Profile')),
-                    Expanded(
-                      flex: 1,
-                      child: Icon(Icons.settings,
-                          color: Color.fromARGB(255, 11, 88, 131)),
+                    Expanded(flex: 1, child: Header(text: 'Profile')),
+                    InkWell(
+                      child: Container(
+                        child: const Icon(Icons.settings,
+                            color: Color.fromARGB(255, 11, 88, 131)),
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const Settings()),
+                                );
+                      },
                     )
                   ],
                 ),
