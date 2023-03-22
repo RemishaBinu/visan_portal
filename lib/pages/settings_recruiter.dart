@@ -51,10 +51,6 @@ class Settings extends StatelessWidget {
                           );
                         },
                       ),
-                      Text('Resume',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 66, 66, 66))),
                       Text('About',
                           textAlign: TextAlign.start,
                           style: TextStyle(

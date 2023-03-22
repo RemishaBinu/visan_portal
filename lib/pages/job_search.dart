@@ -6,6 +6,7 @@ import 'package:visan_portal/pages/job_selection.dart';
 import 'package:visan_portal/service/job_service.dart';
 import '../components/custom_button.dart';
 import '../model/job.dart';
+
 class JobSearch extends StatefulWidget {
   JobService jobService;
   JobSearch({super.key, required this.jobService});
@@ -16,20 +17,15 @@ class JobSearch extends StatefulWidget {
 
 class _JobSearchState extends State<JobSearch> {
   late List<Job> jobs;
-  
 
-@override
+  @override
   void initState() {
-   
     List<Job> jobFromUser = widget.jobService.getJobs();
 
-   setState(() {
-     jobs=jobFromUser;
-   });
-
-   
+    setState(() {
+      jobs = jobFromUser;
+    });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -50,28 +46,21 @@ class _JobSearchState extends State<JobSearch> {
                   style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                 ),
               ),
-         
               GridView.builder(
                   scrollDirection: Axis.vertical,
                   shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                       maxCrossAxisExtent: 200,
-                     
                       crossAxisSpacing: 10,
                       mainAxisSpacing: 10),
-                  itemCount: this.jobs.length ,
+                  itemCount: this.jobs.length,
                   itemBuilder: (BuildContext ctx, index) {
-                   
                     return Container(
-                      height: 150,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                         
-                         ),
-                      child: JobCategory(jobs:jobs[index])
-                    );
+                        height: 150,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(),
+                        child: JobCategory(jobs: jobs[index]));
                   }),
-
               Container(
                 padding: const EdgeInsets.only(top: 20),
                 child: OutlinedButton(
@@ -89,15 +78,16 @@ class _JobSearchState extends State<JobSearch> {
                     onPressed: null,
                     child: const Text('Others')),
               ),
-
               Container(
                 padding: const EdgeInsets.only(top: 50, bottom: 20),
-                child: CustomButton(text: 'Submit', onPressed: (){
-                  Navigator.push(
+                child: CustomButton(
+                    text: 'Submit',
+                    onPressed: () {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => JobSelection()),
                       );
-                }),
+                    }),
               ),
             ],
           ),
@@ -106,5 +96,3 @@ class _JobSearchState extends State<JobSearch> {
     ));
   }
 }
-
-
