@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:visan_portal/pages/required_skills.dart';
+import 'package:visan_portal/pages/employer_profile/basic_info.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/progress_indicator.dart';
-import 'address_info.dart';
+import 'company_details_2.dart';
 
-class CompanyDetails2 extends StatelessWidget {
-  const CompanyDetails2({super.key});
+class AddressInfo2 extends StatefulWidget {
+  const AddressInfo2({super.key});
 
+  @override
+  State<AddressInfo2> createState() => AddressInfo2State();
+}
+
+class AddressInfo2State extends State<AddressInfo2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.only(top: 35, left: 15, right: 15),
           child: Column(children: [
@@ -20,13 +25,13 @@ class CompanyDetails2 extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: ProgressIndication(
-                      text: '1 OF 4',
-                      percent: .25,
+                      text: '2 OF 4',
+                      percent: .50,
                     )),
                 Expanded(
                   flex: 3,
                   child: Text(
-                    'Company Details',
+                    'Address Information',
                     style: TextStyle(
                         fontSize: 21,
                         fontFamily: 'Open Sans',
@@ -36,26 +41,41 @@ class CompanyDetails2 extends StatelessWidget {
                 Expanded(flex: 1, child: Icon(Icons.close)),
               ],
             ),
-            CustomTextField(label: 'Company name', required: true),
-            CustomTextField(label: 'Number of Employees', required: true),
-            CustomTextField(label: 'Full Name', required: true),
+            CustomTextField(label: 'Street Address', hint: 'Tagore Street'),
+            CustomTextField(label: 'Area', required: true, hint: 'Dadagapatti'),
+            CustomTextField(label: 'City', required: true, hint: 'Salem'),
+            CustomTextField(label: 'Pincode', required: true, hint: '641666'),
+            CustomTextField(label: 'State', required: true, hint: 'Tamil Nadu'),
             CustomTextField(
-              label: 'Your role in hiring process',
-              required: true,
-              hint: 'Others',
-              sIcon: Icons.keyboard_arrow_down_outlined,
+                label: 'Country',
+                required: true,
+                hint: 'Select a Country',
+                sIcon: Icons.keyboard_arrow_down_outlined),
+            SizedBox(height: 20),
+            SizedBox(
+              width: double.infinity,
+              child: Text('Select Address from Map',
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 66, 66, 66),
+                      fontFamily: 'Open Sans',
+                      fontSize: 16),
+                  textAlign: TextAlign.start),
             ),
-            CustomTextField(
-              label: 'Enter your role',
-              required: true,
-              hint: 'Senior Recruiter'
-            ),
-
             SizedBox(height: 10),
-
-            //Column
-            //S
-
+            Stack(
+              children: [
+                Container(
+                    width: 396,
+                    height: 220,
+                    child: Image.asset('assets/images/map1.png')),
+                Positioned(
+                    right: 1,
+                    bottom: 1,
+                    left: 1,
+                    top: 1,
+                    child: Image.asset('assets/images/vector.png'))
+              ],
+            ),
             Container(
               padding: EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
@@ -87,7 +107,8 @@ class CompanyDetails2 extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const AddressInfo()),
+                                  builder: (context) =>
+                                      const BasicInfo()),
                             );
                           },
                         ))

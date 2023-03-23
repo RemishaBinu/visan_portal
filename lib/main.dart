@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:visan_portal/model/chat_channel.dart';
+import 'package:visan_portal/pages/chat_messages.dart';
 import 'package:visan_portal/pages/login.dart';
+import 'package:visan_portal/service/chat_service.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -16,7 +20,7 @@ class MyApp extends StatelessWidget {
        
         primarySwatch: Colors.blue,
       ),
-      home:  const Login(),
+      home:  Scaffold(body: ChatMessages(channel: ChatChannel.Default(), chatService: ChatService.getInstance())),
     );
   }
 }

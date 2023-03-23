@@ -10,32 +10,46 @@ class ChatHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        InkWell(
-          child: const Icon(
-            Icons.arrow_back_ios,
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(bottom: BorderSide(color: Color.fromARGB(255, 220, 220, 220), width: 1))
+      ),
+      child: Row(
+        children: [
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: const Icon(
+                Icons.arrow_back_ios,
+              ),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+            },
           ),
-          onTap: () {
-            Navigator.pop(context);
-          },
-        ),
-        Expanded(
-          flex: 1,
-          child: Text(
-            title,
-            style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+          Expanded(
+            flex: 1,
+            child: Container(
+              alignment: Alignment.center,
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-        ),
-        InkWell(
-          child: const Icon(
-            Icons.more_vert,
+          InkWell(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: const Icon(
+                Icons.more_vert,
+              ),
+            ),
+            onTap: () {
+              
+            },
           ),
-          onTap: () {
-            
-          },
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

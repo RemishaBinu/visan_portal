@@ -11,7 +11,6 @@ class ChatMessageRow extends StatelessWidget {
 
   Widget getChatRow(){
     return Container(
-        alignment: message.isCurrentUser ? Alignment.centerRight: Alignment.centerLeft,
         child: ChatMessageComponent(message: message),
       );
   }

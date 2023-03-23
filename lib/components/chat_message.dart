@@ -11,21 +11,24 @@ class ChatMessageComponent extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: 16),
+    return SizedBox(
       child: Column(
+        crossAxisAlignment: message.isCurrentUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
         children: [
           Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: message.isCurrentUser ? Colors.blue.shade50 : Colors.black12,
-              borderRadius: const BorderRadius.all(Radius.circular(10))
+            margin: const EdgeInsets.only(top: 16),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: message.isCurrentUser ? const Color.fromARGB(255, 193, 233, 255) : const Color.fromARGB(255, 220, 220, 220),
+                borderRadius: const BorderRadius.all(Radius.circular(10)),
+              ),
+              child: Text(message.message),
             ),
-            child: Text(message.message),
           ),
           Container(
-            alignment: Alignment.centerRight,
-            child: Text(message.sentOn),
+            margin: const EdgeInsets.only(top: 5),
+            child: Text(message.sentOn, style: const TextStyle(color: Color.fromARGB(255, 188, 188, 188)),),
           )
         ],
       ),
