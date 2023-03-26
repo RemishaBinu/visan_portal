@@ -79,7 +79,7 @@ class ChatMessagesState extends State<ChatMessages>{
     return Container(
       child: Column(
         children: [
-          ChatHeader(title: widget.channel.peerUser.fullName),
+          ChatHeader(title: widget.channel.peerUser!.fullName),
           Expanded(
             flex: 1,
             child: Container(

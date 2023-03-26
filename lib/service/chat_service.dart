@@ -24,4 +24,6 @@ class ChatService{
       ChatMessage(id: 8, message: "Done", sentOn: "02:40 pm", sender: me, isCurrentUser: true),
     ];
   }
+
+ 
 }

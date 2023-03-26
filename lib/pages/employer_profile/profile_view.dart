@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_link_text.dart';
 import 'package:visan_portal/pages/application_review.dart';
+import 'package:visan_portal/pages/contact_info.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -562,7 +563,13 @@ class ProfileView extends StatelessWidget {
             ),
             Container(
                 padding: EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 30),
-                child: CustomButton(text: 'Submit'))
+                child: CustomButton(text: 'Submit',  onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const ContactInfo()),
+                            );
+                          },))
           ]),
         ),
       ),
