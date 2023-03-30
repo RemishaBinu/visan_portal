@@ -39,36 +39,38 @@ class CertificationsState extends State<Certifications> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             SizedBox(height: 10),
             CustomTextField(label: 'Title', required: true),
             Row(
-          children: <Widget>[
-           Checkbox(
-             value: this.value,
-             onChanged: (bool? value) {
-               setState(() {
-                 this.value = value!;
-               });
-             },
-           ),
-            SizedBox(width: 10),
-            Text(
-              'Valid for lifetime',
-              style: TextStyle(
-                  fontSize: 16,
-                  color: Color.fromARGB(255, 189, 189, 189),
-                  fontFamily: 'Open Sans'),
+              children: <Widget>[
+                Checkbox(
+                  value: this.value,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      this.value = value!;
+                    });
+                  },
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'Valid for lifetime',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 189, 189, 189),
+                      fontFamily: 'Open Sans'),
+                ),
+              ],
             ),
-          ],
-        ),
-          
-
             SizedBox(height: 10),
-           
-           
             Row(
               children: [
                 Expanded(
@@ -88,8 +90,7 @@ class CertificationsState extends State<Certifications> {
                 )),
               ],
             ),
-            CustomTextField(
-                    label: 'Description', maxLength: 500, maxLines: 8),
+            CustomTextField(label: 'Description', maxLength: 500, maxLines: 8),
             Container(
               padding: EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
@@ -111,8 +112,8 @@ class CertificationsState extends State<Certifications> {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: (){
-                              Navigator.pop(context); 
+                            onPressed: () {
+                              Navigator.pop(context);
                             })),
                     SizedBox(width: 20),
                     Expanded(

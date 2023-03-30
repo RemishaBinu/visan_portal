@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:visan_portal/model/notification.dart';
+import 'package:visan_portal/pages/notifications2.dart';
 
 class NotificationTile extends StatelessWidget {
   NotificationForUser notification;
@@ -23,15 +24,24 @@ class NotificationTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               
               children: [
-           Container(
-            width: double.infinity,
-            padding: EdgeInsets.only(top: 20),
-             child: Text(notification.companyName,
-             style: TextStyle(fontFamily: 'Open Sans',
-             fontSize: 18,
-             color: Color.fromARGB(255, 2, 52, 80),
-             fontWeight: FontWeight.bold),
-             textAlign: TextAlign.start)
+           InkWell(
+             child: Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(top: 20),
+               child: Text(notification.companyName,
+               style: TextStyle(fontFamily: 'Open Sans',
+               fontSize: 18,
+               color: Color.fromARGB(255, 2, 52, 80),
+               fontWeight: FontWeight.bold),
+               textAlign: TextAlign.start)
+             ),
+             onTap: () {
+               Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Notify2()),
+                          );
+             },
            ),
            Text(notification.status,
            style: TextStyle(color: Color.fromARGB(255, 117, 117,117),

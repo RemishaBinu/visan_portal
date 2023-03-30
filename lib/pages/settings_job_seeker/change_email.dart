@@ -5,6 +5,7 @@ import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_text_field.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/pages/settings_job_seeker/change_phone.dart';
+import 'package:visan_portal/pages/settings_job_seeker/mail_confirmed.dart';
 
 class ChangeEmail extends StatelessWidget {
   const ChangeEmail({super.key});
@@ -30,7 +31,7 @@ class ChangeEmail extends StatelessWidget {
                 onPressed: (){
                   Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => ChangePhone()),
+                        MaterialPageRoute(builder: (context) => MailConfirmed()),
                       );
                 }))
             ],

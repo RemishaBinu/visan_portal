@@ -1,8 +1,28 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class MailConfirmed extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:visan_portal/pages/settings_job_seeker/settings.dart';
+
+import 'change_phone.dart';
+
+class MailConfirmed extends StatefulWidget {
   const MailConfirmed({super.key});
 
+  @override
+  State<MailConfirmed> createState() => MailConfirmedState();
+}
+
+class MailConfirmedState extends State<MailConfirmed> {
+
+   @override
+  void initState() {
+    super.initState();
+
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const Settings())));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -100,7 +100,9 @@ class TrainingComponentState extends State<TrainingComponent> {
                           style: TextStyle(
                               color: Color.fromARGB(255, 117, 117, 117)),
                         ),
-                        onPressed: null)),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        })),
                 SizedBox(width: 20),
                 Expanded(
                     flex: 1,

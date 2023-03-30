@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/modals/account_type_modal.dart';
 import 'package:visan_portal/modals/email_modal.dart';
+import 'package:visan_portal/pages/settings_job_seeker/change_phone.dart';
 
 import '../../components/header_component.dart';
 import '../../components/radio_row.dart';
@@ -54,10 +55,18 @@ class AccountSettings extends StatelessWidget {
                           textAlign: TextAlign.start,
                           style: TextStyle(
                               color: Color.fromARGB(255, 66, 66, 66))),
-                      Text('Change Phone Number',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 66, 66, 66))),
+                      InkWell(
+                        child: Text('Change Phone Number',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 66, 66, 66))),
+                                onTap: (){
+                  Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) =>const ChangePhone()),
+                      );
+                },
+                      ),
                       Text('Close my Account',
                           textAlign: TextAlign.start,
                           style:

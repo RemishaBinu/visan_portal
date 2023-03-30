@@ -3,11 +3,15 @@ import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/components/text_tag.dart';
 import 'package:visan_portal/pages/application.dart';
+import 'package:visan_portal/pages/chat.dart';
+import 'package:visan_portal/pages/notifications.dart';
 import 'package:visan_portal/pages/recent_jobs.dart';
 import 'package:visan_portal/pages/settings_job_seeker/account_settings.dart';
+import 'package:visan_portal/service/chat_channel_service.dart';
+import 'package:visan_portal/service/notification_service.dart';
 
-class Settings extends StatelessWidget {
-  const Settings({super.key});
+class SettingsRecruiter extends StatelessWidget {
+  const SettingsRecruiter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +52,32 @@ class Settings extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const AccountSettings()),
+                          );
+                        },
+                      ),
+                      InkWell(
+                        child: Text('Notifications',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 66, 66, 66))),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>  Notify(notificationService: NotificationService.instance)),
+                          );
+                        },
+                      ),
+                      InkWell(
+                        child: Text('Chat',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 66, 66, 66))),
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Chats(chatChannelService: ChatChannelService.instance)),
                           );
                         },
                       ),

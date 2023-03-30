@@ -3,7 +3,7 @@ import 'package:visan_portal/pages/employer_profile/basic_info.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/progress_indicator.dart';
-import 'company_details_2.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddressInfo2 extends StatefulWidget {
   const AddressInfo2({super.key});
@@ -13,6 +13,24 @@ class AddressInfo2 extends StatefulWidget {
 }
 
 class AddressInfo2State extends State<AddressInfo2> {
+  late GoogleMapController mapController;
+  Marker? currentLocation;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+    currentLocation = Marker(
+      markerId: MarkerId('myLocation'),
+      position: _center,
+      icon: BitmapDescriptor.defaultMarker,
+      infoWindow: InfoWindow(
+        title: 'name',
+        snippet: 'address',
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +46,7 @@ class AddressInfo2State extends State<AddressInfo2> {
                       text: '2 OF 4',
                       percent: .50,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Address Information',
@@ -38,7 +56,13 @@ class AddressInfo2State extends State<AddressInfo2> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             CustomTextField(label: 'Street Address', hint: 'Tagore Street'),
@@ -64,16 +88,31 @@ class AddressInfo2State extends State<AddressInfo2> {
             SizedBox(height: 10),
             Stack(
               children: [
-                Container(
-                    width: 396,
-                    height: 220,
-                    child: Image.asset('assets/images/map1.png')),
+                SizedBox(
+                  height: 250,
+                  width: 400,
+                  child: GoogleMap(
+                      onMapCreated: _onMapCreated,
+                      initialCameraPosition: CameraPosition(
+                        target: _center,
+                        zoom: 11.0,
+                      ),
+                      markers: (currentLocation != null)
+                          ? [currentLocation!].toSet()
+                          : (<Marker>[]).toSet()),
+                ),
                 Positioned(
-                    right: 1,
-                    bottom: 1,
-                    left: 1,
-                    top: 1,
-                    child: Image.asset('assets/images/vector.png'))
+                  bottom: 1,
+                  right: 1,
+                  child: Container(
+                      width: 23,
+                      height: 23,
+                      color: Color.fromARGB(255, 235, 235, 235),
+                      child: Icon(
+                        Icons.location_searching_outlined,
+                        color: Color.fromARGB(255, 117, 117, 117),
+                      )),
+                )
               ],
             ),
             Container(
@@ -97,7 +136,9 @@ class AddressInfo2State extends State<AddressInfo2> {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,
@@ -107,8 +148,7 @@ class AddressInfo2State extends State<AddressInfo2> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const BasicInfo()),
+                                  builder: (context) => const BasicInfo()),
                             );
                           },
                         ))

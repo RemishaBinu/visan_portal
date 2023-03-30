@@ -1,7 +1,25 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
-class ApplicationSubmission extends StatelessWidget {
+import 'edit_profile.dart';
+
+class ApplicationSubmission extends StatefulWidget {
   const ApplicationSubmission({super.key});
+
+  @override
+  State<ApplicationSubmission> createState() => ApplicationSubmissionState();
+}
+
+class ApplicationSubmissionState extends State<ApplicationSubmission> {
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const EditProfile())));
+  }
 
   @override
   Widget build(BuildContext context) {

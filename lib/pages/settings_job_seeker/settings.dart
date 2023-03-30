@@ -3,8 +3,12 @@ import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/components/text_tag.dart';
 import 'package:visan_portal/pages/application.dart';
+import 'package:visan_portal/pages/chat.dart';
+import 'package:visan_portal/pages/notifications.dart';
 import 'package:visan_portal/pages/recent_jobs.dart';
 import 'package:visan_portal/pages/settings_job_seeker/account_settings.dart';
+import 'package:visan_portal/service/chat_channel_service.dart';
+import 'package:visan_portal/service/notification_service.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});

@@ -34,7 +34,13 @@ class ProfileView extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             Container(
@@ -562,14 +568,18 @@ class ProfileView extends StatelessWidget {
               ),
             ),
             Container(
-                padding: EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 30),
-                child: CustomButton(text: 'Submit',  onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const ContactInfo()),
-                            );
-                          },))
+                padding:
+                    EdgeInsets.only(left: 10, right: 10, top: 50, bottom: 30),
+                child: CustomButton(
+                  text: 'Submit',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ContactInfo()),
+                    );
+                  },
+                ))
           ]),
         ),
       ),

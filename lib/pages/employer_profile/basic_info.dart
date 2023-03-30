@@ -39,7 +39,13 @@ class BasicInfoState extends State<BasicInfo> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             CustomTextField(
@@ -122,8 +128,6 @@ class BasicInfoState extends State<BasicInfo> {
                 hint: 'Urgently hiring',
                 sIcon: Icons.keyboard_arrow_down_outlined),
             SizedBox(height: 20),
-          
-            
             Container(
               padding: EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
@@ -145,7 +149,9 @@ class BasicInfoState extends State<BasicInfo> {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,
@@ -155,8 +161,7 @@ class BasicInfoState extends State<BasicInfo> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const SalaryDetails()),
+                                  builder: (context) => const SalaryDetails()),
                             );
                           },
                         ))

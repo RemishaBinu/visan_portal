@@ -5,8 +5,8 @@ import 'package:visan_portal/components/custom_text_field.dart';
 import 'package:visan_portal/components/header_component.dart';
 import 'package:visan_portal/pages/personal_info.dart';
 
-class PersonelDetails extends StatelessWidget {
-  const PersonelDetails({super.key});
+class PersonalDetails extends StatelessWidget {
+  const PersonalDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -87,19 +87,22 @@ class PersonelDetails extends StatelessWidget {
                                       color:
                                           Color.fromARGB(255, 117, 117, 117)),
                                 ),
-                                onPressed: null)),
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                })),
                         SizedBox(width: 20),
                         Expanded(
                             flex: 1,
                             child: CustomButton(
                               text: 'Next',
                               onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const PersonalInfo()),
-                            );
-                          },
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const PersonalInfo()),
+                                );
+                              },
                             ))
                       ],
                     ),

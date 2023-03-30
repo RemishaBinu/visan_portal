@@ -34,7 +34,13 @@ class SalaryDetails extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             SizedBox(height: 10),

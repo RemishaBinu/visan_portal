@@ -33,7 +33,13 @@ class CompanyDetails extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             CustomTextField(label: 'Company name', required: true),
@@ -72,7 +78,9 @@ class CompanyDetails extends StatelessWidget {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,
@@ -82,7 +90,8 @@ class CompanyDetails extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const CompanyDetails2()),
+                                  builder: (context) =>
+                                      const CompanyDetails2()),
                             );
                           },
                         ))

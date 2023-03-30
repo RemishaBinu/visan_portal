@@ -17,8 +17,7 @@ class JobComponent extends StatefulWidget {
 
 class JobComponentState extends State<JobComponent> {
   bool value = false;
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,14 +36,14 @@ class JobComponentState extends State<JobComponent> {
         SizedBox(height: 10),
         Row(
           children: <Widget>[
-           Checkbox(
-             value: this.value,
-             onChanged: (bool? value) {
-               setState(() {
-                 this.value = value!;
-               });
-             },
-           ),
+            Checkbox(
+              value: this.value,
+              onChanged: (bool? value) {
+                setState(() {
+                  this.value = value!;
+                });
+              },
+            ),
             SizedBox(width: 10),
             Text(
               'Currently working here',
@@ -55,69 +54,68 @@ class JobComponentState extends State<JobComponent> {
             ),
           ],
         ),
-         Row(
+        Row(
+          children: [
+            Expanded(
+                child: CustomTextField(
+              label: 'From',
+              hint: 'dd/mm/yy',
+              sIcon: Icons.calendar_month_outlined,
+            )),
+            SizedBox(
+              width: 5,
+            ),
+            Expanded(
+                child: CustomTextField(
+              label: 'To',
+              hint: '20/05/2022',
+              sIcon: Icons.calendar_month_outlined,
+            )),
+          ],
+        ),
+        RadioButton(),
+        CustomTextField(label: 'Description', maxLength: 500, maxLines: 8),
+        Container(
+          padding: EdgeInsets.only(top: 15, bottom: 15),
+          height: 80,
+          child: Container(
+            padding: EdgeInsets.only(top: 15),
+            child: Row(
               children: [
                 Expanded(
-                    child: CustomTextField(
-                  label: 'From',
-                  hint: 'dd/mm/yy',
-                  sIcon: Icons.calendar_month_outlined,
-                )),
-                SizedBox(
-                  width: 5,
-                ),
+                    flex: 1,
+                    child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                            foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                            side: BorderSide(
+                                color: Color.fromARGB(255, 11, 88, 131),
+                                width: 1),
+                            minimumSize: Size(90, 45)),
+                        child: Text(
+                          'Back',
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 117, 117, 117)),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        })),
+                SizedBox(width: 20),
                 Expanded(
-                    child: CustomTextField(
-                  label: 'To',
-                  hint: '20/05/2022',
-                  sIcon: Icons.calendar_month_outlined,
-                )),
+                    flex: 1,
+                    child: CustomButton(
+                      text: 'Next',
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Certifications()),
+                        );
+                      },
+                    ))
               ],
             ),
-            RadioButton(),
-             CustomTextField(
-                    label: 'Description', maxLength: 500, maxLines: 8),
-                     Container(
-                  padding: EdgeInsets.only(top: 15, bottom: 15),
-                  height: 80,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 15),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1,
-                            child: OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                    foregroundColor:
-                                        Color.fromARGB(255, 0, 0, 0),
-                                    side: BorderSide(
-                                        color: Color.fromARGB(255, 11, 88, 131),
-                                        width: 1),
-                                    minimumSize: Size(90, 45)),
-                                child: Text(
-                                  'Back',
-                                  style: TextStyle(
-                                      color:
-                                          Color.fromARGB(255, 117, 117, 117)),
-                                ),
-                                onPressed: null)),
-                        SizedBox(width: 20),
-                        Expanded(
-                            flex: 1,
-                            child: CustomButton(
-                              text: 'Next',
-                              onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const Certifications()),
-                            );
-                          },
-                            ))
-                      ],
-                    ),
-                  ),
-                )
+          ),
+        )
       ],
     );
   }

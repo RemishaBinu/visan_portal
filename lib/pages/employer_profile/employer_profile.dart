@@ -10,6 +10,8 @@ import 'package:visan_portal/pages/employer_profile/company_details.dart';
 import 'package:visan_portal/pages/profile_settings_edit.dart';
 import 'package:visan_portal/pages/settings_job_seeker/settings.dart';
 
+import '../settings_recruiter.dart';
+
 class EmployerProfile extends StatelessWidget {
   const EmployerProfile({super.key});
 
@@ -36,7 +38,7 @@ class EmployerProfile extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Settings()),
+                              builder: (context) => const SettingsRecruiter()),
                         );
                       },
                     )

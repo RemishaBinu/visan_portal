@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/components/progress_indicator.dart';
 import 'package:visan_portal/pages/educational_details.dart';
+import 'package:visan_portal/pages/home_recruiter.dart';
+import 'package:visan_portal/service/recruiter_service.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 
@@ -41,7 +43,13 @@ class ContactInfoState extends State<ContactInfo> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             SizedBox(height: 10),
@@ -137,7 +145,6 @@ class ContactInfoState extends State<ContactInfo> {
                 ),
               ],
             ),
-           
             Container(
               padding: EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
@@ -159,7 +166,9 @@ class ContactInfoState extends State<ContactInfo> {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,
@@ -169,8 +178,9 @@ class ContactInfoState extends State<ContactInfo> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const EducationDetails()),
+                                  builder: (context) => HomeRecruiter(
+                                      recruiterService:
+                                          RecruiterService.instance)),
                             );
                           },
                         ))

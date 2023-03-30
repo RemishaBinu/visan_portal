@@ -274,7 +274,7 @@ class ApplicationReview extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) =>
-                                const EditProfile()),
+                                const ApplicationSubmission()),
                       );
                     }))
           ],

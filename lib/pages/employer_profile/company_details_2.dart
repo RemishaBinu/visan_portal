@@ -33,7 +33,13 @@ class CompanyDetails2 extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             CustomTextField(label: 'Company name', required: true),
@@ -46,10 +52,9 @@ class CompanyDetails2 extends StatelessWidget {
               sIcon: Icons.keyboard_arrow_down_outlined,
             ),
             CustomTextField(
-              label: 'Enter your role',
-              required: true,
-              hint: 'Senior Recruiter'
-            ),
+                label: 'Enter your role',
+                required: true,
+                hint: 'Senior Recruiter'),
 
             SizedBox(height: 10),
 
@@ -68,16 +73,18 @@ class CompanyDetails2 extends StatelessWidget {
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
                                 foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                                side: BorderSide(
+                                side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
                                 minimumSize: Size(90, 45)),
-                            child: Text(
+                            child: const Text(
                               'Back',
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,

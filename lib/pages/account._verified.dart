@@ -1,8 +1,26 @@
-import 'package:flutter/material.dart';
+import 'dart:async';
 
-class AccountVerified extends StatelessWidget {
+import 'package:flutter/material.dart';
+import 'package:visan_portal/service/job_service.dart';
+
+import 'job_search.dart';
+class AccountVerified extends StatefulWidget {
   const AccountVerified({super.key});
 
+  @override
+  State<AccountVerified> createState() => AccountVerifiedState();
+}
+
+class AccountVerifiedState extends State<AccountVerified> {
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => JobSearch(jobService: JobService.instance))));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

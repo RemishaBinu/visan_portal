@@ -18,7 +18,7 @@ class ChangePhone extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(height: 10),
-              Header(text: 'Change email Address'),
+              Header(text: 'Change phone Number'),
               SizedBox(height: 20),
               CustomTextField(label: 'Phone Number'),
               SizedBox(height: 10),

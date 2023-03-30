@@ -4,6 +4,7 @@ import 'package:visan_portal/pages/required_skills.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 import '../components/progress_indicator.dart';
+
 class EducationDetails extends StatefulWidget {
   const EducationDetails({super.key});
 
@@ -15,7 +16,7 @@ class EducationDetailsState extends State<EducationDetails> {
   bool value = false;
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       body: Center(
         child: Container(
           padding: const EdgeInsets.only(top: 35, left: 15, right: 15),
@@ -38,7 +39,13 @@ class EducationDetailsState extends State<EducationDetails> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
             CustomTextField(label: 'Level of Education', required: true),
@@ -47,29 +54,28 @@ class EducationDetailsState extends State<EducationDetails> {
             CustomTextField(label: 'Location '),
 
             SizedBox(height: 10),
-                    Row(
-                      children: <Widget>[   
-                         Checkbox(
-                          value: this.value,  
-                          onChanged: (bool? value) {
-                            setState(() {
-                              this.value = value!;
-                            });
-                          },
-                        ),                                     
-                         
-                        SizedBox(width: 10),
-                        Text(
-                          'Currently studing here',
-                          style: TextStyle(fontSize: 16,
-                          color: Color.fromARGB(255,189, 189, 189),
-                          fontFamily: 'Open Sans'),
-                        ),
-                       
-                      ], 
-                    ),                   
-                 //Column
-              //S
+            Row(
+              children: <Widget>[
+                Checkbox(
+                  value: this.value,
+                  onChanged: (bool? value) {
+                    setState(() {
+                      this.value = value!;
+                    });
+                  },
+                ),
+                SizedBox(width: 10),
+                Text(
+                  'Currently studing here',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: Color.fromARGB(255, 189, 189, 189),
+                      fontFamily: 'Open Sans'),
+                ),
+              ],
+            ),
+            //Column
+            //S
             Row(
               children: [
                 Expanded(
@@ -90,52 +96,49 @@ class EducationDetailsState extends State<EducationDetails> {
               ],
             ),
             Container(
-                  padding: EdgeInsets.only(top: 15, bottom: 15),
-                  height: 80,
-                  child: Container(
-                    padding: EdgeInsets.only(top: 15),
-                    child: Row(
-                      children: [
-                        Expanded(
-                            flex: 1,
-                            child: OutlinedButton(
-                                style: OutlinedButton.styleFrom(
-                                    foregroundColor:
-                                        Color.fromARGB(255, 0, 0, 0),
-                                    side: BorderSide(
-                                        color: Color.fromARGB(255, 11, 88, 131),
-                                        width: 1),
-                                    minimumSize: Size(90, 45)),
-                                child: Text(
-                                  'Back',
-                                  style: TextStyle(
-                                      color:
-                                          Color.fromARGB(255, 117, 117, 117)),
-                                ),
-                                onPressed: null)),
-                        SizedBox(width: 20),
-                        Expanded(
-                            flex: 1,
-                            child: CustomButton(
-                              text: 'Next',
-                              onPressed: () {
+              padding: EdgeInsets.only(top: 15, bottom: 15),
+              height: 80,
+              child: Container(
+                padding: EdgeInsets.only(top: 15),
+                child: Row(
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                                side: BorderSide(
+                                    color: Color.fromARGB(255, 11, 88, 131),
+                                    width: 1),
+                                minimumSize: Size(90, 45)),
+                            child: Text(
+                              'Back',
+                              style: TextStyle(
+                                  color: Color.fromARGB(255, 117, 117, 117)),
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            })),
+                    SizedBox(width: 20),
+                    Expanded(
+                        flex: 1,
+                        child: CustomButton(
+                          text: 'Next',
+                          onPressed: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => const Skills()),
                             );
                           },
-                            ))
-                      ],
-                    ),
-                  ),
-                )
+                        ))
+                  ],
+                ),
+              ),
+            )
           ]),
         ),
       ),
-      );
+    );
   }
 }
-
-
-

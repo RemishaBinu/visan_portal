@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 
+import 'employer_profile/employer_profile.dart';
+
 class ResumeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -633,7 +635,15 @@ class ResumeView extends StatelessWidget {
                     ),
                     Container(
                         padding: EdgeInsets.only(top: 50, left: 10, right: 10),
-                        child: CustomButton(text: 'Save'))
+                        child: CustomButton(text: 'Save',
+                        onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const EmployerProfile()),
+                                );
+                              },))
                   ],
                 ),
               ),

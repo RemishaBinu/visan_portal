@@ -15,14 +15,15 @@ class ChatChannel {
       required this.dateString,
       this.peerUser,
       required this.userName});
-}
 
-//   factory ChatChannel.Default(){
-//     return ChatChannel(
-//       id: 0,
-//       lastMessageText: "Payment still pending for Tesla m",
-//       unRead: 21,
-//       dateString: "May 20",
-//       peerUser: User.Default());
-//   }
-// }
+
+  factory ChatChannel.Default(){
+    return ChatChannel(
+      image: '',
+      lastMessageText: "Payment still pending for Tesla m",
+      unRead: 21,
+      dateString: "May 20",
+      peerUser: User.Default(), 
+      userName: '');
+  }
+}

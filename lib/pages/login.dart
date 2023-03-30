@@ -9,17 +9,29 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Center(
         child: Container(
+          alignment: Alignment.center,
           child: Stack(children: [
-            Container(child: Image.asset("assets/images/back.png")),
+            Container(
+              width: double.infinity,
+              child: const Image(
+                      image: AssetImage('assets/images/back.png'),
+                      fit: BoxFit.fitWidth,
+                    ),
+            ),
             Container(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Container(
                 padding: const EdgeInsets.only(top: 40),
                 child: Column(
                   children: [
-                    Image.asset('assets/images/logo.png'),
+                    const Image(
+                      image: AssetImage('assets/images/logo.png'),
+                      fit: BoxFit.contain,
+                    ),
+                  
                     const Text(
                       'Visan Port',
                       style: TextStyle(

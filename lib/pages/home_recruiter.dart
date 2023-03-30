@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/components/recruiter_tile.dart';
 import 'package:visan_portal/model/recruiter_model.dart';
+import 'package:visan_portal/pages/saved.dart';
 import 'package:visan_portal/service/recruiter_service.dart';
+
+import '../service/chat_channel_service.dart';
+import '../service/notification_service.dart';
+import '../service/saved_proposal_service.dart';
+import 'chat.dart';
+import 'notifications.dart';
 
 class HomeRecruiter extends StatefulWidget {
   RecruiterService recruiterService;
@@ -65,8 +72,18 @@ class HomeRecruiterState extends State<HomeRecruiter> {
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Open Sans'),
                   )),
-              const Expanded(
-                  flex: 1, child: Icon(Icons.notifications_outlined)),
+              Expanded(
+                  flex: 1, child: InkWell(child: Icon(Icons.notifications_outlined),
+                  onTap:(){
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Notify(
+                                  notificationService:
+                                      NotificationService.instance)),
+                        );
+                  } ),
+                  ),
               const Expanded(
                   flex: 1, child: Icon(Icons.align_horizontal_right_rounded))
             ],
@@ -123,31 +140,52 @@ class HomeRecruiterState extends State<HomeRecruiter> {
         
       ),
         bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.black,
+        selectedIconTheme: IconThemeData(color: Colors.blue),
+        unselectedItemColor: Color.fromARGB(255, 0, 0, 0),
+        unselectedIconTheme: IconThemeData(color: Color.fromARGB(255, 0, 0, 0)),
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
+        onTap: (value) {
+          switch (value) {
+            case 1:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => Saved(
+                        savedProposalService: SavedProposalService.instance)),
+              );
+              break;
+            
+            case 3:
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        Chats(chatChannelService: ChatChannelService.instance)),
+              );
+              break;
+          }
+        },
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home,
-            color: Colors.black),
+            icon: Icon(Icons.home),
             label: 'Home',
-            
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.save_alt,
-            color: Colors.black),
+            icon: Icon(Icons.save_alt),
             label: 'Saved',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.select_all_outlined,
-            color: Colors.black),
+            icon: Icon(Icons.select_all_outlined),
             label: 'Selected',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline,
-            color: Colors.black),
+            icon: Icon(Icons.chat_bubble_outline),
             label: 'Chat',
           ),
         ],
-        ),
+      ),
     );
     
   }

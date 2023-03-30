@@ -30,7 +30,7 @@ class _JobSearchState extends State<JobSearch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
+        body: SingleChildScrollView(
       padding: const EdgeInsets.only(top: 35, left: 15, right: 15),
       child: Center(
         child: Container(

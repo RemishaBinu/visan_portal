@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/model/saved_proposal.dart';
 import 'package:visan_portal/service/saved_proposal_service.dart';
 import '../components/proposal_tile.dart';
+import '../modals/application_details_modal.dart';
 
 class Proposal extends StatefulWidget {
   SavedProposalService savedProposalService;
@@ -74,8 +75,17 @@ class ProposalState extends State<Proposal> {
                       height: 150,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(),
-                      child: ProposalTile(
-                        ProposalData: proposalDetails[index],
+                      child: InkWell(
+                        child: ProposalTile(
+                          ProposalData: proposalDetails[index],
+                        ),
+                        onTap: () {
+                showModalBottomSheet(context: context,
+                  builder: (context){
+                    return ApplicationDetailsModal();
+                  }
+                );
+              },
                       ));
                 }),
           ]),

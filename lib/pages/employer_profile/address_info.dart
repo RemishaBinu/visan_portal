@@ -3,7 +3,7 @@ import 'package:visan_portal/pages/employer_profile/address_info2.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/progress_indicator.dart';
-import 'company_details_2.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddressInfo extends StatefulWidget {
   const AddressInfo({super.key});
@@ -13,6 +13,14 @@ class AddressInfo extends StatefulWidget {
 }
 
 class AddressInfoState extends State<AddressInfo> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,7 +46,14 @@ class AddressInfoState extends State<AddressInfo> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                      child: Icon(Icons.close),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    )),
               ],
             ),
             CustomTextField(label: 'Street Address'),
@@ -58,9 +73,17 @@ class AddressInfoState extends State<AddressInfo> {
             ),
             SizedBox(height: 10),
             Stack(children: [
-              Container(
-                  
-                  child: Image.asset('assets/images/map1.png')),
+              SizedBox(
+                height: 250,
+                width: 400,
+                child: GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _center,
+                    zoom: 11.0,
+                  ),
+                ),
+              ),
               Positioned(
                 bottom: 1,
                 right: 1,
@@ -95,7 +118,9 @@ class AddressInfoState extends State<AddressInfo> {
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
                             ),
-                            onPressed: null)),
+                            onPressed: () {
+                              Navigator.pop(context);
+                            })),
                     SizedBox(width: 20),
                     Expanded(
                         flex: 1,
@@ -105,8 +130,7 @@ class AddressInfoState extends State<AddressInfo> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const AddressInfo2()),
+                                  builder: (context) => const AddressInfo2()),
                             );
                           },
                         ))

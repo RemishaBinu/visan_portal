@@ -76,29 +76,31 @@ class ChatMessagesState extends State<ChatMessages>{
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          ChatHeader(title: widget.channel.peerUser!.fullName),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: const EdgeInsets.only(left: 16,right: 16),
-              child: ListView.builder( 
-                scrollDirection: Axis.vertical,
-                controller: widget.scrollController,
-                shrinkWrap: true,
-                itemCount: messages.length,
-                itemBuilder: (context, index) {
-                return ChatMessageRow(message: messages[index]);
-              })
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: [
+            ChatHeader(title: widget.channel.peerUser!.fullName),
+            Expanded(
+              flex: 1,
+              child: Container(
+                padding: const EdgeInsets.only(left: 16,right: 16),
+                child: ListView.builder( 
+                  scrollDirection: Axis.vertical,
+                  controller: widget.scrollController,
+                  shrinkWrap: true,
+                  itemCount: messages.length,
+                  itemBuilder: (context, index) {
+                  return ChatMessageRow(message: messages[index]);
+                })
+              ),
             ),
-          ),
-          ChatFooter(onMessageSend: (String message) {
-            // Send this message via service call
-            sendMessage(message);
-          },)
-        ],
+            ChatFooter(onMessageSend: (String message) {
+              // Send this message via service call
+              sendMessage(message);
+            },)
+          ],
+        ),
       ),
     );
   }

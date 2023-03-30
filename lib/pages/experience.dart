@@ -44,7 +44,7 @@ class ExperienceState extends State<Experience> {
     return Scaffold(
       body: SingleChildScrollView(
           child: Container(
-            width: double.infinity,
+        width: double.infinity,
         padding: const EdgeInsets.only(top: 35, left: 15, right: 15),
         child: Column(
           children: [
@@ -66,16 +66,23 @@ class ExperienceState extends State<Experience> {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: Icon(Icons.close)),
-                
+                Expanded(
+                    flex: 1,
+                    child: InkWell(
+                        child: Icon(Icons.close),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        })),
               ],
             ),
-            SizedBox(height: 20,),
+            SizedBox(
+              height: 20,
+            ),
             Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                        child: Container(
+              children: [
+                Expanded(
+                    flex: 1,
+                    child: Container(
                       margin: const EdgeInsets.only(right: 5),
                       child: ElevatedButton(
                         style: ButtonStyle(
@@ -90,22 +97,22 @@ class ExperienceState extends State<Experience> {
                         child: const Text("Jobs"),
                       ),
                     )),
-                    Expanded(
-                      flex: 1,
-                        child: ElevatedButton(
-                          style: ButtonStyle(
-                              backgroundColor: getButtonColor(!isRecent),
-                              foregroundColor: MaterialStateProperty.all<Color>(
-                                  const Color.fromARGB(255, 11, 88, 131)),
-                              minimumSize: MaterialStateProperty.all(
-                                  const Size.fromHeight(45))),
-                          onPressed: () {
-                            loadItems();
-                          },
-                          child: const Text("Intern/Training"),
-                        ))
-                  ],
-                ),
+                Expanded(
+                    flex: 1,
+                    child: ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor: getButtonColor(!isRecent),
+                          foregroundColor: MaterialStateProperty.all<Color>(
+                              const Color.fromARGB(255, 11, 88, 131)),
+                          minimumSize: MaterialStateProperty.all(
+                              const Size.fromHeight(45))),
+                      onPressed: () {
+                        loadItems();
+                      },
+                      child: const Text("Intern/Training"),
+                    ))
+              ],
+            ),
             isRecent ? JobComponent() : TrainingComponent()
           ],
         ),

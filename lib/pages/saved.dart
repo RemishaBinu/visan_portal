@@ -88,17 +88,8 @@ class SavedState extends State<Saved> {
                       height: 150,
                       alignment: Alignment.center,
                       decoration: BoxDecoration(),
-                      child: InkWell(
-                        child: SavedTile(
-                          savedProposal: savedDetails[index],
-                        ),
-                        onTap: () {
-                showModalBottomSheet(context: context,
-                  builder: (context){
-                    return ApplicationDetailsModal();
-                  }
-                );
-              },
+                      child: SavedTile(
+                        savedProposal: savedDetails[index],
                       ));
                 }),
           ]),

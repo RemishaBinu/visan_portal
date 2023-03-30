@@ -1,8 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
-class PhoneConfirmed extends StatelessWidget {
+import '../settings_recruiter.dart';
+import 'settings.dart';
+
+class PhoneConfirmed extends StatefulWidget {
   const PhoneConfirmed({super.key});
 
+  @override
+  State<PhoneConfirmed> createState() => PhoneConfirmedState();
+}
+
+class PhoneConfirmedState extends State<PhoneConfirmed> {
+  @override
+  void initState() {
+    super.initState();
+
+    Timer(
+        Duration(seconds: 3),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => const Settings())));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

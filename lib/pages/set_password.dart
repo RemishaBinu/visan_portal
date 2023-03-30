@@ -36,7 +36,7 @@ class SetPassword extends StatelessWidget {
                   child: CustomButton(text: 'Set password', onPressed: () {
                      Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => ForgotPassword()),
+                              MaterialPageRoute(builder: (context) => AccountVerified()),
                             );
                   },)),
             ],

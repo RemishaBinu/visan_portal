@@ -4,6 +4,7 @@ import 'package:visan_portal/components/box.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/file_upload.dart';
 import 'package:visan_portal/components/header_component.dart';
+import 'package:visan_portal/pages/personal_details.dart';
 
 class ProfileSettingsEdit extends StatelessWidget {
   const ProfileSettingsEdit({super.key});
@@ -55,21 +56,11 @@ class ProfileSettingsEdit extends StatelessWidget {
                             textAlign: TextAlign.start,
                           ),
                           TextButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) =>
-                                          const ProfileSettingsEdit()),
-                                );
-                              },
-                              child: Text('Change Photo')),
+                              onPressed: null, child: Text('Change Photo')),
                         ],
                       ),
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Icon(Icons.edit_outlined))
+                    Expanded(flex: 1, child: Icon(Icons.edit_outlined))
                   ],
                 ),
               ]),
@@ -87,52 +78,61 @@ class ProfileSettingsEdit extends StatelessWidget {
                     hasColor: false,
                     icon: Icons.add)),
             Container(
-              width: double.infinity,
-              alignment: Alignment.centerLeft,
-              margin: const EdgeInsets.only(bottom: 6),
-              child: Text('Resume', style: const TextStyle(fontSize: 18,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'Open Sans'
-              ))),
-              InkWell(
+                width: double.infinity,
+                alignment: Alignment.centerLeft,
+                margin: const EdgeInsets.only(bottom: 6),
+                child: Text('Resume',
+                    style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Open Sans'))),
+            InkWell(
               child: Container(
                 padding: EdgeInsets.only(top: 10, bottom: 10),
                 child: DottedBorder(
                   color: Colors.black,
                   strokeWidth: 1,
-                  child: FileUpload(
-                      fileName: 'Visanport - Resume'),
+                  child: FileUpload(fileName: 'Visanport - Resume'),
                 ),
               ),
-              onTap: () {
-              },
+              onTap: () {},
             ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: Text('Uploads', style: const TextStyle(fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Open Sans',
-                    
-                    ),
-                    textAlign: TextAlign.start,),
+            Container(
+              width: double.infinity,
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                'Uploads',
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Open Sans',
+                ),
+                textAlign: TextAlign.start,
               ),
-              InkWell(
+            ),
+            InkWell(
               child: Container(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
-                child: DottedBorder(
-                  color: Colors.black,
-                  strokeWidth: 1,
-                  child: FileUpload(fileName: 'Upload , certificates, portfolios \nor other documents')
-                )
-              ),
-              onTap: () {
-              },
+                  padding: EdgeInsets.only(top: 10, bottom: 10),
+                  child: DottedBorder(
+                      color: Colors.black,
+                      strokeWidth: 1,
+                      child: FileUpload(
+                          fileName:
+                              'Upload , certificates, portfolios \nor other documents'))),
+              onTap: () {},
             ),
-
-              Container(
+            Container(
                 padding: EdgeInsets.only(bottom: 30, top: 50),
-                child: CustomButton(text: 'Save'))
+                child: CustomButton(
+                  text: 'Save',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PersonalDetails()),
+                    );
+                  },
+                ))
           ],
         ),
       ),
