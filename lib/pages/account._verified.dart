@@ -4,8 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/service/job_service.dart';
 
 import 'job_search.dart';
+
 class AccountVerified extends StatefulWidget {
-  const AccountVerified({super.key});
+  const AccountVerified({Key? key}) : super(key: key);
 
   @override
   State<AccountVerified> createState() => AccountVerifiedState();
@@ -17,10 +18,14 @@ class AccountVerifiedState extends State<AccountVerified> {
     super.initState();
 
     Timer(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => JobSearch(jobService: JobService.instance))));
+            context,
+            MaterialPageRoute(
+                builder: (context) =>
+                    JobSearch(jobService: JobService.instance))));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -6,7 +6,7 @@ import '../../components/progress_indicator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddressInfo2 extends StatefulWidget {
-  const AddressInfo2({super.key});
+  const AddressInfo2({Key? key}) : super(key: key);
 
   @override
   State<AddressInfo2> createState() => AddressInfo2State();
@@ -21,10 +21,10 @@ class AddressInfo2State extends State<AddressInfo2> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
     currentLocation = Marker(
-      markerId: MarkerId('myLocation'),
+      markerId: const MarkerId('myLocation'),
       position: _center,
       icon: BitmapDescriptor.defaultMarker,
-      infoWindow: InfoWindow(
+      infoWindow: const InfoWindow(
         title: 'name',
         snippet: 'address',
       ),
@@ -59,7 +59,7 @@ class AddressInfo2State extends State<AddressInfo2> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
@@ -75,8 +75,8 @@ class AddressInfo2State extends State<AddressInfo2> {
                 required: true,
                 hint: 'Select a Country',
                 sIcon: Icons.keyboard_arrow_down_outlined),
-            SizedBox(height: 20),
-            SizedBox(
+            const SizedBox(height: 20),
+            const SizedBox(
               width: double.infinity,
               child: Text('Select Address from Map',
                   style: TextStyle(
@@ -85,7 +85,7 @@ class AddressInfo2State extends State<AddressInfo2> {
                       fontSize: 16),
                   textAlign: TextAlign.start),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Stack(
               children: [
                 SizedBox(
@@ -107,8 +107,8 @@ class AddressInfo2State extends State<AddressInfo2> {
                   child: Container(
                       width: 23,
                       height: 23,
-                      color: Color.fromARGB(255, 235, 235, 235),
-                      child: Icon(
+                      color: const Color.fromARGB(255, 235, 235, 235),
+                      child: const Icon(
                         Icons.location_searching_outlined,
                         color: Color.fromARGB(255, 117, 117, 117),
                       )),
@@ -116,22 +116,23 @@ class AddressInfo2State extends State<AddressInfo2> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
               child: Container(
-                padding: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
                     Expanded(
                         flex: 1,
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                                side: BorderSide(
+                                foregroundColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
+                                side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
-                                minimumSize: Size(90, 45)),
-                            child: Text(
+                                minimumSize: const Size(90, 45)),
+                            child: const Text(
                               'Back',
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
@@ -139,7 +140,7 @@ class AddressInfo2State extends State<AddressInfo2> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             })),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                         flex: 1,
                         child: CustomButton(

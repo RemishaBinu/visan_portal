@@ -6,8 +6,9 @@ import '../../components/progress_indicator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddressInfo extends StatefulWidget {
-  const AddressInfo({super.key});
+  const AddressInfo({Key? key}) : super(key: key);
 
+  
   @override
   State<AddressInfo> createState() => AddressInfoState();
 }

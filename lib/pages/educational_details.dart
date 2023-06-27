@@ -6,7 +6,7 @@ import '../components/custom_text_field.dart';
 import '../components/progress_indicator.dart';
 
 class EducationDetails extends StatefulWidget {
-  const EducationDetails({super.key});
+  const EducationDetails({Key? key}) : super(key: key);
 
   @override
   State<EducationDetails> createState() => EducationDetailsState();
@@ -29,7 +29,7 @@ class EducationDetailsState extends State<EducationDetails> {
                       text: '2 OF 7',
                       percent: .28,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Educational Details',
@@ -42,7 +42,7 @@ class EducationDetailsState extends State<EducationDetails> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
@@ -53,7 +53,7 @@ class EducationDetailsState extends State<EducationDetails> {
             CustomTextField(label: 'College or University'),
             CustomTextField(label: 'Location '),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               children: <Widget>[
                 Checkbox(
@@ -64,8 +64,8 @@ class EducationDetailsState extends State<EducationDetails> {
                     });
                   },
                 ),
-                SizedBox(width: 10),
-                Text(
+                const SizedBox(width: 10),
+                const Text(
                   'Currently studing here',
                   style: TextStyle(
                       fontSize: 16,
@@ -84,7 +84,7 @@ class EducationDetailsState extends State<EducationDetails> {
                   hint: 'dd/mm/yy',
                   sIcon: Icons.calendar_month_outlined,
                 )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Expanded(
@@ -96,22 +96,22 @@ class EducationDetailsState extends State<EducationDetails> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
               child: Container(
-                padding: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
                     Expanded(
                         flex: 1,
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                                side: BorderSide(
+                                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                                side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
-                                minimumSize: Size(90, 45)),
-                            child: Text(
+                                minimumSize: const Size(90, 45)),
+                            child: const Text(
                               'Back',
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
@@ -119,7 +119,7 @@ class EducationDetailsState extends State<EducationDetails> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             })),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                         flex: 1,
                         child: CustomButton(

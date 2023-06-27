@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'edit_profile.dart';
 
 class ApplicationSubmission extends StatefulWidget {
-  const ApplicationSubmission({super.key});
+  const ApplicationSubmission({Key? key}) : super(key: key);
 
   @override
   State<ApplicationSubmission> createState() => ApplicationSubmissionState();
@@ -16,7 +16,7 @@ class ApplicationSubmissionState extends State<ApplicationSubmission> {
     super.initState();
 
     Timer(
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
         () => Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const EditProfile())));
   }

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:visan_portal/components/job_component.dart';
 
 import '../components/progress_indicator.dart';
 import '../components/training_component.dart';
 
 class Experience extends StatefulWidget {
-  const Experience({super.key});
+  const Experience({Key? key}) : super(key: key);
 
   @override
   State<Experience> createState() => ExperienceState();
@@ -56,7 +54,7 @@ class ExperienceState extends State<Experience> {
                       text: '4 OF 7',
                       percent: .57,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Experience',
@@ -69,13 +67,13 @@ class ExperienceState extends State<Experience> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -113,7 +111,7 @@ class ExperienceState extends State<Experience> {
                     ))
               ],
             ),
-            isRecent ? JobComponent() : TrainingComponent()
+            isRecent ? const JobComponent() : const TrainingComponent()
           ],
         ),
       )),

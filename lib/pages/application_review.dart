@@ -2,14 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/custom_text_field.dart';
 import 'package:visan_portal/components/file_upload.dart';
-import 'package:visan_portal/components/header_component.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:visan_portal/modals/resume_summary_modal.dart';
 import 'package:visan_portal/pages/application_submission.dart';
-import 'package:visan_portal/pages/edit_profile.dart';
 
 class ApplicationReview extends StatelessWidget {
-  const ApplicationReview({super.key});
+  const ApplicationReview({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +17,7 @@ class ApplicationReview extends StatelessWidget {
         padding: const EdgeInsets.only(top: 35, left: 15, right: 15),
         child: Column(
           children: [
-            Row(
+            const Row(
               children: [
                 Expanded(flex: 1, child: Icon(Icons.arrow_back_ios)),
                 Expanded(
@@ -37,8 +35,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 10, bottom: 5),
-              child: Text(
+              padding: const EdgeInsets.only(top: 10, bottom: 5),
+              child: const Text(
                 'Soft Solutions',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -49,8 +47,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 'Coimbatore,Tamilnadu',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -61,7 +59,7 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              child: Text(
+              child: const Text(
                 'See Details',
                 style: TextStyle(
                   fontSize: 14,
@@ -73,15 +71,15 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   border: Border(
                       bottom: BorderSide(
                           color: Color.fromARGB(255, 224, 224, 224),
                           width: 1))),
-              padding: EdgeInsets.only(bottom: 10),
+              padding: const EdgeInsets.only(bottom: 10),
               child: Container(
-                padding: EdgeInsets.only(top: 15, bottom: 5),
-                child: Row(
+                padding: const EdgeInsets.only(top: 15, bottom: 5),
+                child: const Row(
                   children: [
                     Expanded(
                       flex: 4,
@@ -100,8 +98,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: const Text(
                 'Full name ',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -113,8 +111,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 'Vijayakumar R',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -126,8 +124,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: const Text(
                 'Email Address ',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -139,8 +137,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 'vijaykumaar1907@gmail.com',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -152,8 +150,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: const Text(
                 'City, State ',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -165,8 +163,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 'TamilNadu, India',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -178,8 +176,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 10, bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
+              child: const Text(
                 'Phone Number',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -191,8 +189,8 @@ class ApplicationReview extends StatelessWidget {
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: const Text(
                 '+91 93605 13967',
                 textAlign: TextAlign.start,
                 style: TextStyle(
@@ -207,7 +205,7 @@ class ApplicationReview extends StatelessWidget {
               maxLength: 500,
               maxLines: 8,
             ),
-            Row(
+            const Row(
               children: [
                 Expanded(
                     flex: 4,
@@ -227,7 +225,7 @@ class ApplicationReview extends StatelessWidget {
             ),
             InkWell(
               child: Container(
-                padding: EdgeInsets.only(top: 10, bottom: 10),
+                padding: const EdgeInsets.only(top: 10, bottom: 10),
                 child: DottedBorder(
                   color: Colors.black,
                   strokeWidth: 1,
@@ -237,17 +235,17 @@ class ApplicationReview extends StatelessWidget {
                 ),
               ),
               onTap: () {
-                showModalBottomSheet(context: context,
-                  builder: (context){
-                    return ResumeSummaryModal();
-                  }
-                );
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return ResumeSummaryModal();
+                    });
               },
             ),
             Container(
               width: double.infinity,
-              padding: EdgeInsets.only(top: 20, bottom: 10),
-              child: Text(
+              padding: const EdgeInsets.only(top: 20, bottom: 10),
+              child: const Text(
                 'Additional Documents',
                 style: TextStyle(
                     color: Color.fromARGB(255, 2, 52, 80),

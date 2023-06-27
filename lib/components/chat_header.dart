@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 
 class ChatHeader extends StatelessWidget {
-  String title;
+  final String title;
 
-  ChatHeader({
-    super.key,
+  const ChatHeader({
+    Key? key,
     required this.title,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        border: Border(bottom: BorderSide(color: Color.fromARGB(255, 220, 220, 220), width: 1))
-      ),
+          border: Border(
+              bottom: BorderSide(
+                  color: Color.fromARGB(255, 220, 220, 220), width: 1))),
       child: Row(
         children: [
           InkWell(
@@ -44,9 +45,7 @@ class ChatHeader extends StatelessWidget {
                 Icons.more_vert,
               ),
             ),
-            onTap: () {
-              
-            },
+            onTap: () {},
           ),
         ],
       ),

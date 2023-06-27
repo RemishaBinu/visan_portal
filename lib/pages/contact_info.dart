@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:visan_portal/components/progress_indicator.dart';
-import 'package:visan_portal/pages/educational_details.dart';
 import 'package:visan_portal/pages/home_recruiter.dart';
 import 'package:visan_portal/service/recruiter_service.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 
 class ContactInfo extends StatefulWidget {
-  const ContactInfo({super.key});
+  const ContactInfo({Key? key}) : super(key: key);
 
   @override
   State<ContactInfo> createState() => ContactInfoState();
@@ -28,12 +26,12 @@ class ContactInfoState extends State<ContactInfo> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                      child: Icon(Icons.arrow_back_ios),
+                      child: const Icon(Icons.arrow_back_ios),
                       onTap: () {
                         Navigator.pop(context);
                       },
                     )),
-                Expanded(
+                const Expanded(
                   flex: 4,
                   child: Text(
                     'Contact Info',
@@ -46,13 +44,13 @@ class ContactInfoState extends State<ContactInfo> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(
               label: 'Email ID',
               required: true,
@@ -68,8 +66,8 @@ class ContactInfoState extends State<ContactInfo> {
                     });
                   },
                 ),
-                SizedBox(width: 5),
-                Text(
+                const SizedBox(width: 5),
+                const Text(
                   'Use this mail ID to recieve Resumes',
                   style: TextStyle(
                       fontSize: 14,
@@ -78,20 +76,20 @@ class ContactInfoState extends State<ContactInfo> {
                 ),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(label: 'Alternate Email ID', required: true),
-            Row(
+            const Row(
               children: [
                 Text('Phone Number',
                     style:
-                        const TextStyle(fontSize: 16, fontFamily: 'Open Sans')),
+                        TextStyle(fontSize: 16, fontFamily: 'Open Sans')),
                 Text(
                   "*",
                   style: TextStyle(color: Color.fromARGB(255, 235, 87, 87)),
                 )
               ],
             ),
-            SizedBox(height: 5),
+            const SizedBox(height: 5),
             Row(children: [
               Expanded(
                   flex: 1,
@@ -102,12 +100,12 @@ class ContactInfoState extends State<ContactInfo> {
                     padding: const EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                         border: Border.all(
-                            color: Color.fromARGB(255, 189, 189, 189)),
+                            color: const Color.fromARGB(255, 189, 189, 189)),
                         borderRadius: BorderRadius.circular(5)),
                     child: Row(
                       children: [
                         Image.asset('assets/images/us.png'),
-                        Icon(Icons.arrow_drop_down)
+                        const Icon(Icons.arrow_drop_down)
                       ],
                     ),
                   )),
@@ -117,7 +115,7 @@ class ContactInfoState extends State<ContactInfo> {
                     decoration: InputDecoration(
                       hintText: '(+91) 45818 74858',
                       hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 66, 66, 66)),
+                          const TextStyle(color: Color.fromARGB(255, 66, 66, 66)),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -135,8 +133,8 @@ class ContactInfoState extends State<ContactInfo> {
                     });
                   },
                 ),
-                SizedBox(width: 5),
-                Text(
+                const SizedBox(width: 5),
+                const Text(
                   ' Applicant can call directly after got selected',
                   style: TextStyle(
                       fontSize: 14,
@@ -146,22 +144,22 @@ class ContactInfoState extends State<ContactInfo> {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
               child: Container(
-                padding: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
                     Expanded(
                         flex: 1,
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                                side: BorderSide(
+                                foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                                side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
-                                minimumSize: Size(90, 45)),
-                            child: Text(
+                                minimumSize: const Size(90, 45)),
+                            child: const Text(
                               'Back',
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
@@ -169,7 +167,7 @@ class ContactInfoState extends State<ContactInfo> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             })),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                         flex: 1,
                         child: CustomButton(

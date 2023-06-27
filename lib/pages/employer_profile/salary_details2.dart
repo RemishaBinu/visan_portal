@@ -6,7 +6,7 @@ import '../../components/progress_indicator.dart';
 
 
 class SalaryDetails2 extends StatelessWidget {
-  const SalaryDetails2({super.key});
+  const SalaryDetails2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class SalaryDetails2 extends StatelessWidget {
                       text: '4 OF 4',
                       percent: 1,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Salary Details',
@@ -33,13 +33,13 @@ class SalaryDetails2 extends StatelessWidget {
                         fontWeight: FontWeight.bold),
                   ),
                 ),
-                Expanded(flex: 1, child: InkWell(child: Icon(Icons.close),
+                Expanded(flex: 1, child: InkWell(child: const Icon(Icons.close),
                 onTap: () {
                     Navigator.of(context).pop();
                   })),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(
                 label: 'Payment Limitations',
                 required: true,
@@ -59,15 +59,15 @@ class SalaryDetails2 extends StatelessWidget {
                 label: 'Offers',
                 hint: 'Shift Allowance',
                 sIcon: Icons.keyboard_arrow_down_outlined),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: CustomButton(
                   text: 'Next',
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => ProfileView()),
+                      MaterialPageRoute(builder: (context) => const ProfileView()),
                     );
                   },
                 ))

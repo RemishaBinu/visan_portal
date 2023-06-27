@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:visan_portal/pages/required_skills.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/progress_indicator.dart';
 import 'address_info.dart';
 
 class CompanyDetails2 extends StatelessWidget {
-  const CompanyDetails2({super.key});
+  const CompanyDetails2({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class CompanyDetails2 extends StatelessWidget {
                       text: '1 OF 4',
                       percent: .25,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Company Details',
@@ -36,7 +35,7 @@ class CompanyDetails2 extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
@@ -56,27 +55,28 @@ class CompanyDetails2 extends StatelessWidget {
                 required: true,
                 hint: 'Senior Recruiter'),
 
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
 
             //Column
             //S
 
             Container(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
               child: Container(
-                padding: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
                     Expanded(
                         flex: 1,
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
+                                foregroundColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
                                 side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
-                                minimumSize: Size(90, 45)),
+                                minimumSize: const Size(90, 45)),
                             child: const Text(
                               'Back',
                               style: TextStyle(
@@ -85,7 +85,7 @@ class CompanyDetails2 extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                             })),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                         flex: 1,
                         child: CustomButton(

@@ -9,29 +9,25 @@ import 'package:visan_portal/model/chat_message.dart';
 import 'package:visan_portal/model/user.dart';
 import 'package:visan_portal/service/chat_service.dart';
 
-class ChatMessages extends StatefulWidget{
-  ChatChannel channel;
-  ChatService chatService;
-  ScrollController scrollController = ScrollController();
-  ChatMessages({
-    super.key,
-    required this.channel,
-    required this.chatService
-  });
+class ChatMessages extends StatefulWidget {
+  final ChatChannel channel;
+  final ChatService chatService;
+  final ScrollController scrollController = ScrollController();
+  ChatMessages({Key? key, required this.channel, required this.chatService})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
     return ChatMessagesState();
   }
-
 }
 
-class ChatMessagesState extends State<ChatMessages>{
+class ChatMessagesState extends State<ChatMessages> {
   List<ChatMessage> messages = [];
 
-  loadMessages(){
+  loadMessages() {
     setState(() {
-      messages = widget.chatService.getMessagesByChannel(widget.channel);  
+      messages = widget.chatService.getMessagesByChannel(widget.channel);
     });
   }
 
@@ -41,68 +37,72 @@ class ChatMessagesState extends State<ChatMessages>{
     super.initState();
   }
 
-  sendMessage(String message){
+  sendMessage(String message) {
     setState(() {
       messages.addAll([
         ChatMessage(
-          id: 0, message: message, sentOn: '02:40 pm', sender: User.Default(), isCurrentUser: true
-        )
+            id: 0,
+            message: message,
+            sentOn: '02:40 pm',
+            sender: User.Default(),
+            isCurrentUser: true)
       ]);
     });
     widget.scrollController.animateTo(
-      widget.scrollController.offset + widget.scrollController.position.viewportDimension,
-      duration: const Duration(milliseconds: 300), 
-      curve: Curves.easeOut);
+        widget.scrollController.offset +
+            widget.scrollController.position.viewportDimension,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeOut);
     mimicReply();
   }
 
-  mimicReply(){
-    Timer(const Duration(seconds: 2), () { 
+  mimicReply() {
+    Timer(const Duration(seconds: 2), () {
       setState(() {
         messages.addAll([
           ChatMessage(
-            id: 0, message: "Ok", sentOn: '02:40 pm', sender: User.Default(), isCurrentUser: false
-          )
+              id: 0,
+              message: "Ok",
+              sentOn: '02:40 pm',
+              sender: User.Default(),
+              isCurrentUser: false)
         ]);
       });
       widget.scrollController.animateTo(
-        widget.scrollController.offset + widget.scrollController.position.viewportDimension,
-        duration: const Duration(milliseconds: 300), 
-        curve: Curves.easeOut
-      );
+          widget.scrollController.offset +
+              widget.scrollController.position.viewportDimension,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOut);
     });
-    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            ChatHeader(title: widget.channel.peerUser!.fullName),
-            Expanded(
-              flex: 1,
-              child: Container(
-                padding: const EdgeInsets.only(left: 16,right: 16),
-                child: ListView.builder( 
-                  scrollDirection: Axis.vertical,
-                  controller: widget.scrollController,
-                  shrinkWrap: true,
-                  itemCount: messages.length,
-                  itemBuilder: (context, index) {
-                  return ChatMessageRow(message: messages[index]);
-                })
-              ),
-            ),
-            ChatFooter(onMessageSend: (String message) {
+      body: Column(
+        children: [
+          ChatHeader(title: widget.channel.peerUser!.fullName),
+          Expanded(
+            flex: 1,
+            child: Container(
+                padding: const EdgeInsets.only(left: 16, right: 16),
+                child: ListView.builder(
+                    scrollDirection: Axis.vertical,
+                    controller: widget.scrollController,
+                    shrinkWrap: true,
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
+                      return ChatMessageRow(message: messages[index]);
+                    })),
+          ),
+          ChatFooter(
+            onMessageSend: (String message) {
               // Send this message via service call
               sendMessage(message);
-            },)
-          ],
-        ),
+            },
+          )
+        ],
       ),
     );
   }
-
 }
