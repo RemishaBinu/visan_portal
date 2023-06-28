@@ -1,35 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 import '../model/job.dart';
 
 class JobCategory extends StatelessWidget {
-  Job jobs;
+  final Job jobs;
 
-  JobCategory({super.key, required this.jobs});
+  const JobCategory({Key? key, required this.jobs}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 150,
       width: 150,
-      padding: EdgeInsets.only(top: 30, left: 10, right: 10),
-      margin: EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 30, left: 10, right: 10),
+      margin: const EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
-          border: Border.all(color: Color.fromARGB(255, 47, 142, 194)),
+          border: Border.all(color: const Color.fromARGB(255, 47, 142, 194)),
           borderRadius: BorderRadius.circular(10)),
       child: Column(children: [
         Icon(
-          this.jobs.icon,
-          color: Color.fromARGB(255, 47, 142, 194),
+          jobs.icon,
+          color: const Color.fromARGB(255, 47, 142, 194),
         ),
         Container(
-          padding: EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Text(
-            this.jobs.job,
+            jobs.job,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
+            style: const TextStyle(color: Color.fromARGB(255, 117, 117, 117)),
           ),
         )
       ]),

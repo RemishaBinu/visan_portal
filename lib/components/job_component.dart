@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:visan_portal/components/radio.dart';
 import 'package:visan_portal/pages/certifications.dart';
 
-import '../pages/required_skills.dart';
 import 'custom_button.dart';
 import 'custom_text_field.dart';
 
 class JobComponent extends StatefulWidget {
-  const JobComponent({super.key});
+  const JobComponent({Key? key}) : super(key: key);
 
   @override
   State<JobComponent> createState() => JobComponentState();
@@ -22,30 +19,30 @@ class JobComponentState extends State<JobComponent> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomTextField(
+        const CustomTextField(
           label: 'Job Title',
           hint: 'Select',
           required: true,
         ),
-        CustomTextField(
+        const CustomTextField(
           label: 'Company',
         ),
-        CustomTextField(
+        const CustomTextField(
           label: 'Location ',
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Row(
           children: <Widget>[
             Checkbox(
-              value: this.value,
+              value: value,
               onChanged: (bool? value) {
                 setState(() {
                   this.value = value!;
                 });
               },
             ),
-            SizedBox(width: 10),
-            Text(
+            const SizedBox(width: 10),
+            const Text(
               'Currently working here',
               style: TextStyle(
                   fontSize: 16,
@@ -54,7 +51,7 @@ class JobComponentState extends State<JobComponent> {
             ),
           ],
         ),
-        Row(
+        const Row(
           children: [
             Expanded(
                 child: CustomTextField(
@@ -73,25 +70,26 @@ class JobComponentState extends State<JobComponent> {
             )),
           ],
         ),
-        RadioButton(),
-        CustomTextField(label: 'Description', maxLength: 500, maxLines: 8),
+        const RadioButton(),
+        const CustomTextField(
+            label: 'Description', maxLength: 500, maxLines: 8),
         Container(
-          padding: EdgeInsets.only(top: 15, bottom: 15),
+          padding: const EdgeInsets.only(top: 15, bottom: 15),
           height: 80,
           child: Container(
-            padding: EdgeInsets.only(top: 15),
+            padding: const EdgeInsets.only(top: 15),
             child: Row(
               children: [
                 Expanded(
                     flex: 1,
                     child: OutlinedButton(
                         style: OutlinedButton.styleFrom(
-                            foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                            side: BorderSide(
+                            foregroundColor: const Color.fromARGB(255, 0, 0, 0),
+                            side: const BorderSide(
                                 color: Color.fromARGB(255, 11, 88, 131),
                                 width: 1),
-                            minimumSize: Size(90, 45)),
-                        child: Text(
+                            minimumSize: const Size(90, 45)),
+                        child: const Text(
                           'Back',
                           style: TextStyle(
                               color: Color.fromARGB(255, 117, 117, 117)),
@@ -99,7 +97,7 @@ class JobComponentState extends State<JobComponent> {
                         onPressed: () {
                           Navigator.of(context).pop();
                         })),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                     flex: 1,
                     child: CustomButton(
