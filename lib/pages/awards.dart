@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:visan_portal/pages/required_skills.dart';
 import 'package:visan_portal/pages/resume_view.dart';
 import '../components/custom_button.dart';
 import '../components/custom_text_field.dart';
 import '../components/progress_indicator.dart';
 
 class Awards extends StatelessWidget {
-  const Awards({super.key});
+  const Awards({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +22,7 @@ class Awards extends StatelessWidget {
                       text: '7 OF 7',
                       percent: 1,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Awards',
@@ -36,22 +35,22 @@ class Awards extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(label: 'Title', required: true),
             CustomTextField(
                 label: 'Date awarded',
                 hint: 'dd/mm/yy',
                 sIcon: Icons.calendar_month_outlined),
             CustomTextField(label: 'Description', maxLength: 500, maxLines: 8),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: CustomButton(
                   text: 'Submit',
                   onPressed: () {

@@ -1,7 +1,15 @@
 {
 	"folders": [
 		{
-			"name": "visan_portal",
+			"path": "../eatery"
+		},
+		{
+			"path": "../eatery_components"
+		},
+		{
+			"path": "../eatery_db"
+		},
+		{
 			"path": "."
 		}
 	],

@@ -3,21 +3,15 @@ import 'package:visan_portal/components/chat_message.dart';
 import 'package:visan_portal/model/chat_message.dart';
 
 class ChatMessageRow extends StatelessWidget {
-  ChatMessage message;
-  ChatMessageRow({
-    super.key,
-    required this.message
-  });
+  final ChatMessage message;
+  const ChatMessageRow({Key? key, required this.message}) : super(key: key);
 
-  Widget getChatRow(){
-    return Container(
-        child: ChatMessageComponent(message: message),
-      );
+  Widget getChatRow() {
+    return ChatMessageComponent(message: message);
   }
 
   @override
   Widget build(BuildContext context) {
     return getChatRow();
   }
-
 }

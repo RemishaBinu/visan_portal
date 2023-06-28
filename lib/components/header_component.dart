@@ -1,28 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class Header extends StatelessWidget {
-  String text;
-  
-  Header({super.key,required this.text});
+  final String text;
+
+  const Header({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        InkWell(child: Icon(Icons.arrow_back_ios,
+        InkWell(
+          child: const Icon(
+            Icons.arrow_back_ios,
+          ),
+          onTap: () {
+            Navigator.pop(context);
+          },
         ),
-        onTap: () {
-          Navigator.pop(context);
-        },),
         Container(
-          padding: EdgeInsets.only(left: 10),
-          child: Text(text,
-           style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),),
+          padding: const EdgeInsets.only(left: 10),
+          child: Text(
+            text,
+            style: const TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+          ),
         ),
-        
-
       ],
     );
   }

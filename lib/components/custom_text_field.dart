@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  String label;
-  String? hint;
-  bool? required;
-  int? maxLength;
-  int? maxLines;
-  IconData? sIcon;
-  Function(String)? onChanged;
-  CustomTextField(
-      {super.key,
+  final String label;
+  final String? hint;
+  final bool? required;
+  final int? maxLength;
+  final int? maxLines;
+  final IconData? sIcon;
+  final Function(String)? onChanged;
+  const CustomTextField(
+      {Key? key,
       required this.label,
       this.hint,
       this.maxLength,
       this.onChanged,
       this.maxLines,
       this.required,
-      this.sIcon});
+      this.sIcon})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,14 +42,13 @@ class CustomTextField extends StatelessWidget {
             decoration: InputDecoration(
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5),
-                    borderSide:
-                        const BorderSide(width: 1.0, color: Color.fromARGB(255, 189, 189, 189))),
+                    borderSide: const BorderSide(
+                        width: 1.0, color: Color.fromARGB(255, 189, 189, 189))),
                 hintText: hint,
-                suffixIcon: Icon(this.sIcon)),
+                suffixIcon: Icon(sIcon)),
             onChanged: onChanged,
-            maxLength:maxLength ,
+            maxLength: maxLength,
             maxLines: maxLines,
-            
           )
         ],
       ),

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:visan_portal/pages/employer_profile/salary_details2.dart';
-import 'package:visan_portal/pages/required_skills.dart';
-import 'package:visan_portal/pages/resume_view.dart';
 import '../../components/custom_button.dart';
 import '../../components/custom_text_field.dart';
 import '../../components/progress_indicator.dart';
 
 class SalaryDetails extends StatelessWidget {
-  const SalaryDetails({super.key});
+  const SalaryDetails({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class SalaryDetails extends StatelessWidget {
                       text: '4 OF 4',
                       percent: 1,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Salary Details',
@@ -37,13 +35,13 @@ class SalaryDetails extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             CustomTextField(
                 label: 'Payment Limitations',
                 required: true,
@@ -64,15 +62,16 @@ class SalaryDetails extends StatelessWidget {
                 label: 'Offers',
                 hint: 'Shift Allowance',
                 sIcon: Icons.keyboard_arrow_down_outlined),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-                padding: EdgeInsets.only(left: 10, right: 10),
+                padding: const EdgeInsets.only(left: 10, right: 10),
                 child: CustomButton(
                   text: 'Next',
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => SalaryDetails2()),
+                      MaterialPageRoute(
+                          builder: (context) => const SalaryDetails2()),
                     );
                   },
                 ))

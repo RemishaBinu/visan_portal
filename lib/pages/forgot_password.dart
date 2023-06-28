@@ -4,14 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:visan_portal/components/custom_button.dart';
 import 'package:visan_portal/components/pin_input.dart';
 import 'package:visan_portal/pages/set_password.dart';
-import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:visan_portal/pages/set_phone_number.dart';
 
 const waitingSeconds = 20;
 
 class ForgotPassword extends StatefulWidget {
-  const ForgotPassword({super.key});
-  
+  const ForgotPassword({Key? key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() {
     return ForgotPasswordState();
@@ -36,8 +35,8 @@ class ForgotPasswordState extends State<ForgotPassword> {
     return d.inMinutes < 1 && d.inSeconds < 1;
   }
 
-  String getCurrentDeltaBeautified(){
-    if(waitingDelta == null){
+  String getCurrentDeltaBeautified() {
+    if (waitingDelta == null) {
       return "00:00";
     }
     return "${waitingDelta?.inMinutes.remainder(60).toString().padLeft(2, "0")}:${waitingDelta?.inSeconds.remainder(60).toString().padLeft(2, "0")}";
@@ -73,66 +72,71 @@ class ForgotPasswordState extends State<ForgotPassword> {
     startWaiting();
   }
 
-  Widget getTimerWidget(){
+  Widget getTimerWidget() {
     return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Icon(
-                    Icons.timer_outlined,
-                    color: Color.fromARGB(255, 47, 142, 194),
-                    size: 15,
-                  ),
-                  Text(getCurrentDeltaBeautified(),
-                    style: const TextStyle(
-                        fontSize: 12, color: Color.fromARGB(255, 47, 142, 194)),
-                  )
-                ],
-              );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const Icon(
+          Icons.timer_outlined,
+          color: Color.fromARGB(255, 47, 142, 194),
+          size: 15,
+        ),
+        Text(
+          getCurrentDeltaBeautified(),
+          style: const TextStyle(
+              fontSize: 12, color: Color.fromARGB(255, 47, 142, 194)),
+        )
+      ],
+    );
   }
 
-  Widget getTimerRestartButtonWidget(){
+  Widget getTimerRestartButtonWidget() {
     return InkWell(
-      child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(
-                      Icons.repeat_sharp,
-                      color: Color.fromARGB(255, 47, 142, 194),
-                      size: 12,
-                    ),
-                    const Text("Resend verification code",
-                      style: const TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 47, 142, 194)),
-                    )
-                  ],
-                ),
+      child: const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.repeat_sharp,
+            color: Color.fromARGB(255, 47, 142, 194),
+            size: 12,
+          ),
+          Text(
+            "Resend verification code",
+            style: TextStyle(
+                fontSize: 15, color: Color.fromARGB(255, 47, 142, 194)),
+          )
+        ],
+      ),
       onTap: () {
         startWaiting();
       },
     );
   }
 
-  Widget getChangeButton(){
+  Widget getChangeButton() {
     return InkWell(
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 10),
-                        child: const Text("Change",
-                          style: TextStyle(
-                          fontSize: 15, color: Color.fromARGB(255, 47, 142, 194), decoration: TextDecoration.underline),
-                        ),
-                      ),
-                      onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => const SetPhone()),
-                        );
-                      },
-                    );
+      child: Container(
+        margin: const EdgeInsets.only(left: 10),
+        child: const Text(
+          "Change",
+          style: TextStyle(
+              fontSize: 15,
+              color: Color.fromARGB(255, 47, 142, 194),
+              decoration: TextDecoration.underline),
+        ),
+      ),
+      onTap: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SetPhone()),
+        );
+      },
+    );
   }
 
   @override
   void dispose() {
-    if(timer != null){
+    if (timer != null) {
       timer!.cancel();
     }
     super.dispose();
@@ -179,11 +183,11 @@ class ForgotPasswordState extends State<ForgotPassword> {
                           color: Color.fromARGB(255, 0, 0, 0),
                           fontWeight: FontWeight.bold),
                     ),
-                    if(!isWaitingUserInput) getChangeButton()
+                    if (!isWaitingUserInput) getChangeButton()
                   ],
                 ),
               ),
-              PinInput(),
+              const PinInput(),
               Container(
                   padding: const EdgeInsets.only(
                       left: 20, right: 20, top: 30, bottom: 20),
@@ -192,11 +196,14 @@ class ForgotPasswordState extends State<ForgotPassword> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => SetPassword()),
+                        MaterialPageRoute(
+                            builder: (context) => const SetPassword()),
                       );
                     },
                   )),
-              isWaitingUserInput ? getTimerWidget() : getTimerRestartButtonWidget()
+              isWaitingUserInput
+                  ? getTimerWidget()
+                  : getTimerRestartButtonWidget()
             ],
           ),
         )),

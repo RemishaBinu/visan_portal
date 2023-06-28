@@ -6,7 +6,7 @@ import '../../components/progress_indicator.dart';
 import 'company_details_2.dart';
 
 class BasicInfo extends StatefulWidget {
-  const BasicInfo({super.key});
+  const BasicInfo({Key? key}) : super(key: key);
 
   @override
   State<BasicInfo> createState() => BasicInfoState();
@@ -29,7 +29,7 @@ class BasicInfoState extends State<BasicInfo> {
                       text: '3 OF 4',
                       percent: .75,
                     )),
-                Expanded(
+                const Expanded(
                   flex: 3,
                   child: Text(
                     'Basic Information',
@@ -42,7 +42,7 @@ class BasicInfoState extends State<BasicInfo> {
                 Expanded(
                     flex: 1,
                     child: InkWell(
-                        child: Icon(Icons.close),
+                        child: const Icon(Icons.close),
                         onTap: () {
                           Navigator.of(context).pop();
                         })),
@@ -113,8 +113,8 @@ class BasicInfoState extends State<BasicInfo> {
                     });
                   },
                 ),
-                SizedBox(width: 10),
-                Text(
+                const SizedBox(width: 10),
+                const Text(
                   'You Urgently hire for this role ?',
                   style: TextStyle(
                       fontSize: 16,
@@ -127,24 +127,25 @@ class BasicInfoState extends State<BasicInfo> {
                 label: 'How Quickly you need to hire this role',
                 hint: 'Urgently hiring',
                 sIcon: Icons.keyboard_arrow_down_outlined),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
+              padding: const EdgeInsets.only(top: 15, bottom: 15),
               height: 80,
               child: Container(
-                padding: EdgeInsets.only(top: 15),
+                padding: const EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
                     Expanded(
                         flex: 1,
                         child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                foregroundColor: Color.fromARGB(255, 0, 0, 0),
-                                side: BorderSide(
+                                foregroundColor:
+                                    const Color.fromARGB(255, 0, 0, 0),
+                                side: const BorderSide(
                                     color: Color.fromARGB(255, 11, 88, 131),
                                     width: 1),
-                                minimumSize: Size(90, 45)),
-                            child: Text(
+                                minimumSize: const Size(90, 45)),
+                            child: const Text(
                               'Back',
                               style: TextStyle(
                                   color: Color.fromARGB(255, 117, 117, 117)),
@@ -152,7 +153,7 @@ class BasicInfoState extends State<BasicInfo> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             })),
-                    SizedBox(width: 20),
+                    const SizedBox(width: 20),
                     Expanded(
                         flex: 1,
                         child: CustomButton(

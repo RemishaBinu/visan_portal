@@ -6,7 +6,7 @@ import '../components/tags.dart';
 import 'job_selection.dart';
 
 class Filter extends StatefulWidget {
-  const Filter({super.key});
+  const Filter({Key? key}) : super(key: key);
 
   @override
   State<Filter> createState() => FilterState();
@@ -21,13 +21,13 @@ class FilterState extends State<Filter> {
     return Scaffold(
         body: Center(
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(children: [
           Header(text: 'Filter'),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             children: [
-              Expanded(
+              const Expanded(
                 flex: 4,
                 child: Text('CATEGORY',
                     style: TextStyle(
@@ -39,7 +39,7 @@ class FilterState extends State<Filter> {
               Expanded(
                   flex: 1,
                   child: InkWell(
-                      child: Icon(Icons.add,
+                      child: const Icon(Icons.add,
                           color: Color.fromARGB(255, 11, 88, 131)),
                       onTap: () {
                         Navigator.push(
@@ -50,7 +50,7 @@ class FilterState extends State<Filter> {
                       }))
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TagsComponent(
             tags: [
               'Android App development',
@@ -61,10 +61,10 @@ class FilterState extends State<Filter> {
               'Python'
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Row(
             children: [
-              Expanded(
+              const Expanded(
                 flex: 4,
                 child: Text('CITY',
                     style: TextStyle(
@@ -76,7 +76,7 @@ class FilterState extends State<Filter> {
               Expanded(
                   flex: 1,
                   child: InkWell(
-                    child: Icon(Icons.add,
+                    child: const Icon(Icons.add,
                         color: Color.fromARGB(255, 11, 88, 131)),
                     onTap: () {
                       Navigator.push(
@@ -88,7 +88,7 @@ class FilterState extends State<Filter> {
                   ))
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           TagsComponent(
             tags: [
               'Coimbatore',
@@ -100,10 +100,10 @@ class FilterState extends State<Filter> {
               'Mumbai'
             ],
           ),
-          SizedBox(height: 30),
+          const SizedBox(height: 30),
           Container(
             width: double.infinity,
-            child: Text('JOB TYPE',
+            child: const Text('JOB TYPE',
                 style: TextStyle(
                     color: Color.fromARGB(255, 117, 117, 117),
                     fontFamily: 'Open Sans',
@@ -111,7 +111,7 @@ class FilterState extends State<Filter> {
                     fontWeight: FontWeight.bold),
                 textAlign: TextAlign.start),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: <Widget>[
               Checkbox(
@@ -122,7 +122,7 @@ class FilterState extends State<Filter> {
                   });
                 },
               ),
-              Text(
+              const Text(
                 'Part Time',
                 style: TextStyle(
                     fontSize: 16,
@@ -141,8 +141,8 @@ class FilterState extends State<Filter> {
                   });
                 },
               ),
-              SizedBox(width: 10),
-              Text(
+              const SizedBox(width: 10),
+              const Text(
                 'Full Time',
                 style: TextStyle(
                     fontSize: 16,

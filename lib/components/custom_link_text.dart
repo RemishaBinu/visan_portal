@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
 class CustomLinkText extends StatelessWidget {
-  String text;
+  final String text;
   final VoidCallback onPressed;
-  CustomLinkText({super.key, required this.text, required this.onPressed});
+  const CustomLinkText({Key? key, required this.text, required this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,8 +12,8 @@ class CustomLinkText extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           text,
-          style:
-              TextStyle(color: Color.fromARGB(255, 11, 88, 131), fontSize: 12),
+          style: const TextStyle(
+              color: Color.fromARGB(255, 11, 88, 131), fontSize: 12),
         ));
   }
 }
